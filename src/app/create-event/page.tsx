@@ -58,8 +58,8 @@ export default function CreateEventPage() {
   return (
     <div className="min-h-screen bg-[linear-gradient(135deg,#faf5ff,#fff7ed,#eff6ff)]">
       <Navbar />
-      <main className="mx-auto min-h-[70vh] max-w-3xl px-6 py-12">
-        <section className="rounded-3xl border border-white/70 bg-white/90 p-8 shadow-[0_24px_70px_rgba(76,29,149,0.12)]">
+      <main className="mx-auto min-h-[70vh] max-w-3xl px-4 py-8 sm:px-6 sm:py-12">
+        <section className="rounded-3xl border border-white/70 bg-white/90 p-5 shadow-[0_24px_70px_rgba(76,29,149,0.12)] sm:p-8">
           {success && (
             <div className="mb-5 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 font-bold text-emerald-700">
               {success}

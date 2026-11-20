@@ -40,7 +40,7 @@ export default function JoinedEventsPage() {
   return (
     <div className="min-h-screen bg-[linear-gradient(135deg,#faf5ff,#fff7ed,#eff6ff)] dark:bg-zinc-950">
       <Navbar />
-      <main className="mx-auto min-h-[70vh] max-w-6xl px-6 py-12">
+      <main className="mx-auto min-h-[70vh] max-w-6xl px-4 py-10 sm:px-6 sm:py-12">
         <span className="text-sm font-bold text-violet-600">Your participation</span>
         <h1 className="mt-2 text-4xl font-black">Joined Events</h1>
         {events.length === 0 ? (

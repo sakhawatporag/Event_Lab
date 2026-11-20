@@ -19,7 +19,7 @@ export default function UpcomingEventsPage() {
   return (
     <div className="min-h-screen bg-[linear-gradient(135deg,#faf5ff,#fff7ed,#eff6ff)]">
       <Navbar />
-      <main className="mx-auto min-h-[70vh] max-w-6xl px-6 py-12">
+      <main className="mx-auto min-h-[70vh] max-w-6xl px-4 py-10 sm:px-6 sm:py-12">
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
             <span className="text-sm font-bold text-violet-600">Discover and join</span>

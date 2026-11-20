@@ -38,7 +38,7 @@ export default function Navbar() {
     .toUpperCase();
 
   return (
-    <nav className="relative z-30 w-full border-b border-white/30 bg-white/85 px-6 py-4 text-zinc-900 shadow-[0_8px_30px_rgba(79,70,229,0.12)] backdrop-blur-xl dark:border-white/10 dark:bg-zinc-950/85 dark:text-white">
+    <nav className="relative z-30 w-full border-b border-white/30 bg-white/85 px-4 py-3 text-zinc-900 shadow-[0_8px_30px_rgba(79,70,229,0.12)] backdrop-blur-xl sm:px-6 sm:py-4 dark:border-white/10 dark:bg-zinc-950/85 dark:text-white">
       <div className="mx-auto flex max-w-6xl items-center justify-between">
         <Link href="/" className="group flex items-center gap-3 font-bold">
           <span className="flex size-11 items-center justify-center rounded-2xl bg-linear-to-br from-violet-500 via-fuchsia-500 to-orange-400 text-sm font-extrabold text-white shadow-[0_8px_24px_rgba(168,85,247,0.35)] transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-105">

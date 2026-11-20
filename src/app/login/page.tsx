@@ -23,11 +23,11 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen bg-[linear-gradient(135deg,#faf5ff,#fff7ed,#eff6ff)] dark:bg-zinc-950">
-    <main className="relative flex min-h-[calc(100vh-280px)] items-center justify-center overflow-hidden px-6 py-12">
+    <main className="relative flex min-h-[calc(100vh-280px)] items-center justify-center overflow-hidden px-4 py-8 sm:px-6 sm:py-12">
       <div className="absolute -left-20 top-10 size-72 rounded-full bg-violet-300/40 blur-3xl" />
       <div className="absolute -right-20 bottom-10 size-72 rounded-full bg-orange-300/40 blur-3xl" />
 
-      <section className="relative w-full max-w-md rounded-3xl border border-white/70 bg-white/85 p-8 shadow-[0_24px_70px_rgba(76,29,149,0.16)] backdrop-blur-xl sm:p-10">
+      <section className="relative w-full max-w-md rounded-3xl border border-white/70 bg-white/85 p-5 shadow-[0_24px_70px_rgba(76,29,149,0.16)] backdrop-blur-xl sm:p-8 md:p-10">
         <div className="mb-8 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
             <span className="flex size-11 items-center justify-center rounded-2xl bg-linear-to-br from-violet-500 via-fuchsia-500 to-orange-400 text-sm font-extrabold text-white">

@@ -55,17 +55,17 @@ export default function EventDetailsClient() {
   return (
     <div className="min-h-screen bg-[linear-gradient(135deg,#faf5ff,#fff7ed,#eff6ff)] dark:bg-zinc-950">
       <Navbar />
-      <main className="mx-auto min-h-[70vh] max-w-5xl px-6 py-12">
+      <main className="mx-auto min-h-[70vh] max-w-5xl px-4 py-8 sm:px-6 sm:py-12">
         {!event ? (
           <div className="rounded-3xl bg-white p-10 text-center font-bold text-zinc-700 shadow-xl dark:bg-zinc-900 dark:text-zinc-300">
             Loading event details...
           </div>
         ) : (
-          <article className="overflow-hidden rounded-4xl border border-white/80 bg-white shadow-[0_24px_70px_rgba(76,29,149,0.14)] dark:border-zinc-800 dark:bg-zinc-900">
-            <Image src={event.imageUrl} alt={event.title} width={1200} height={840} unoptimized className="h-72 w-full object-cover sm:h-105" />
-            <div className="p-6 sm:p-10">
+          <article className="overflow-hidden rounded-3xl border border-white/80 bg-white shadow-[0_24px_70px_rgba(76,29,149,0.14)] sm:rounded-4xl dark:border-zinc-800 dark:bg-zinc-900">
+            <Image src={event.imageUrl} alt={event.title} width={1200} height={840} unoptimized className="h-52 w-full object-cover sm:h-105" />
+            <div className="p-5 sm:p-8 md:p-10">
               <span className="rounded-full bg-violet-100 px-4 py-1.5 text-sm font-bold text-violet-700">{event.eventType}</span>
-              <h1 className="mt-5 text-4xl font-black sm:text-5xl">{event.title}</h1>
+              <h1 className="mt-5 text-3xl font-black sm:text-4xl md:text-5xl">{event.title}</h1>
               <div className="mt-5 flex flex-wrap gap-5 text-sm font-semibold text-zinc-500 dark:text-zinc-400">
                 <span>Location: {event.location}</span>
                 <span>Date: {new Date(`${event.eventDate}T00:00:00`).toLocaleDateString()}</span>

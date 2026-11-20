@@ -28,29 +28,29 @@ export default function Home() {
     <div className="relative min-h-screen overflow-hidden bg-[linear-gradient(135deg,#faf5ff_0%,#fff7ed_50%,#eff6ff_100%)] font-sans text-zinc-900 dark:bg-[linear-gradient(135deg,#09090b_0%,#18112b_50%,#17120a_100%)] dark:text-white">
       <Navbar />
       <main>
-        <section className="relative mx-auto grid min-h-155 max-w-6xl items-center gap-10 px-6 py-16 lg:grid-cols-[1fr_.85fr]">
+        <section className="relative mx-auto grid min-h-[560px] max-w-6xl items-center gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:min-h-155 lg:grid-cols-[1fr_.85fr]">
           <div className="pointer-events-none absolute -left-32 top-20 size-80 rounded-full bg-violet-300/35 blur-3xl" />
           <div className="relative max-w-2xl">
           <span className="inline-flex rounded-full border border-violet-200 bg-white/70 px-4 py-2 text-sm font-bold text-violet-700 shadow-sm backdrop-blur-sm dark:border-violet-800 dark:bg-zinc-900/70 dark:text-violet-300">
             Community-powered social events
           </span>
-          <h1 className="mt-6 text-5xl font-black leading-tight sm:text-6xl">
+          <h1 className="mt-5 text-4xl font-black leading-tight sm:mt-6 sm:text-5xl lg:text-6xl">
             Make a difference,
             <span className="block bg-linear-to-r from-violet-600 via-fuchsia-500 to-orange-500 bg-clip-text text-transparent">
               together.
             </span>
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-8 text-zinc-600 dark:text-zinc-300">
+          <p className="mt-5 max-w-xl text-base leading-7 text-zinc-600 sm:mt-6 sm:text-lg sm:leading-8 dark:text-zinc-300">
             Discover community cleanups, donation drives, and local projects where every contribution matters.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Link href="/events" className="rounded-2xl bg-linear-to-r from-violet-600 to-fuchsia-600 px-7 py-3.5 font-bold text-white shadow-[0_12px_30px_rgba(124,58,237,0.28)] transition-transform hover:-translate-y-1">
+          <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-4">
+            <Link href="/events" className="rounded-2xl bg-linear-to-r from-violet-600 to-fuchsia-600 px-6 py-3.5 text-center font-bold text-white shadow-[0_12px_30px_rgba(124,58,237,0.28)] transition-transform hover:-translate-y-1 sm:px-7">
               Explore Events
             </Link>
             <button
               type="button"
               onClick={openCreateEvent}
-              className="rounded-2xl border border-violet-200 bg-white/80 px-7 py-3.5 font-bold text-violet-700 shadow-sm backdrop-blur-sm transition-all hover:border-violet-400 hover:bg-white dark:border-violet-800 dark:bg-zinc-900/80 dark:text-violet-300"
+              className="rounded-2xl border border-violet-200 bg-white/80 px-6 py-3.5 font-bold text-violet-700 shadow-sm backdrop-blur-sm transition-all hover:border-violet-400 hover:bg-white sm:px-7 dark:border-violet-800 dark:bg-zinc-900/80 dark:text-violet-300"
             >
               Create an Event
             </button>
@@ -106,11 +106,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-white/60 px-6 py-20 dark:bg-zinc-950/40">
+        <section className="bg-white/60 px-4 py-14 sm:px-6 sm:py-20 dark:bg-zinc-950/40">
           <div className="mx-auto max-w-6xl">
             <div className="text-center">
               <span className="text-sm font-bold text-violet-600">Why Event Lab</span>
-              <h2 className="mt-2 text-4xl font-black">Small actions, lasting impact</h2>
+              <h2 className="mt-2 text-3xl font-black sm:text-4xl">Small actions, lasting impact</h2>
             </div>
             <div className="mt-10 grid gap-6 md:grid-cols-3">
               {[
@@ -128,12 +128,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="px-6 py-20">
+        <section className="px-4 py-14 sm:px-6 sm:py-20">
           <div className="mx-auto max-w-6xl">
             <div className="flex items-end justify-between gap-4">
               <div>
                 <span className="text-sm font-bold text-violet-600">Coming soon</span>
-                <h2 className="mt-2 text-4xl font-black">Recent Upcoming Events</h2>
+                <h2 className="mt-2 text-3xl font-black sm:text-4xl">Recent Upcoming Events</h2>
               </div>
               <Link href="/events" className="hidden font-bold text-violet-600 hover:text-fuchsia-600 sm:block">View all →</Link>
             </div>
@@ -158,11 +158,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-white/60 px-6 py-20 dark:bg-zinc-950/40">
+        <section className="bg-white/60 px-4 py-14 sm:px-6 sm:py-20 dark:bg-zinc-950/40">
           <div className="mx-auto max-w-6xl">
             <div className="text-center">
               <span className="text-sm font-bold text-violet-600">Community gallery</span>
-              <h2 className="mt-2 text-4xl font-black">Moments of impact</h2>
+              <h2 className="mt-2 text-3xl font-black sm:text-4xl">Moments of impact</h2>
             </div>
             <div className="mt-9 grid grid-cols-2 gap-4 md:grid-cols-4">
               {[
@@ -171,7 +171,7 @@ export default function Home() {
                 "photo-1593113646773-028c64a8f1b8",
                 "photo-1559027615-cd4628902d4a",
               ].map((photo, index) => (
-                <Image key={photo} src={`https://images.unsplash.com/${photo}?auto=format&fit=crop&w=700&q=85`} alt={`Community event ${index + 1}`} width={700} height={448} unoptimized className="h-56 w-full rounded-2xl object-cover shadow-lg" />
+                <Image key={photo} src={`https://images.unsplash.com/${photo}?auto=format&fit=crop&w=700&q=85`} alt={`Community event ${index + 1}`} width={700} height={448} unoptimized className="h-36 w-full rounded-2xl object-cover shadow-lg sm:h-56" />
               ))}
             </div>
           </div>
