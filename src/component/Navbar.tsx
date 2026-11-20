@@ -19,6 +19,7 @@ export default function Navbar() {
       const useDark = savedTheme === "dark";
       setDarkMode(useDark);
       document.documentElement.classList.toggle("dark", useDark);
+      document.documentElement.setAttribute("data-theme", useDark ? "dark" : "light");
     });
   }, []);
 
@@ -27,6 +28,7 @@ export default function Navbar() {
     setDarkMode(nextMode);
     localStorage.setItem("eventLabTheme", nextMode ? "dark" : "light");
     document.documentElement.classList.toggle("dark", nextMode);
+    document.documentElement.setAttribute("data-theme", nextMode ? "dark" : "light");
   };
   const initials = userName
     .split(" ")
