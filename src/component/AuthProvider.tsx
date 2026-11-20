@@ -20,10 +20,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [userEmail, setUserEmail] = useState("");
 
   useEffect(() => {
-    setLoggedIn(localStorage.getItem("eventLabLoggedIn") === "true");
-    setUserName(localStorage.getItem("eventLabUserName") || "Alex Parker");
-    setUserEmail(localStorage.getItem("eventLabUserEmail") || "");
-    setIsLoaded(true);
+    queueMicrotask(() => {
+      setLoggedIn(localStorage.getItem("eventLabLoggedIn") === "true");
+      setUserName(localStorage.getItem("eventLabUserName") || "Alex Parker");
+      setUserEmail(localStorage.getItem("eventLabUserEmail") || "");
+      setIsLoaded(true);
+    });
   }, []);
 
   const login = (name = "Alex Parker", email = "") => {

@@ -4,24 +4,16 @@ import { useEffect, useState } from "react";
 import Navbar from "../../component/Navbar";
 import Footer from "../../component/Footer";
 import Link from "next/link";
-
-type EventItem = {
-  id: string;
-  title: string;
-  description: string;
-  eventType: string;
-  imageUrl: string;
-  location: string;
-  eventDate: string;
-  creatorEmail: string;
-};
+import Image from "next/image";
+import { getEventsForDisplay, type EventItem } from "../../component/seedEvents";
 
 export default function UpcomingEventsPage() {
   const [events, setEvents] = useState<EventItem[]>([]);
 
   useEffect(() => {
-    const stored = JSON.parse(localStorage.getItem("eventLabEvents") || "[]") as EventItem[];
-    setEvents(stored.filter((event) => new Date(`${event.eventDate}T23:59:59`) > new Date()));
+    queueMicrotask(() => {
+      setEvents(getEventsForDisplay());
+    });
   }, []);
 
   return (
@@ -44,7 +36,7 @@ export default function UpcomingEventsPage() {
           <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {events.map((event) => (
               <article key={event.id} className="overflow-hidden rounded-3xl border border-white/80 bg-white/90 shadow-[0_18px_45px_rgba(76,29,149,0.12)]">
-                <img src={event.imageUrl} alt={event.title} className="h-48 w-full object-cover" />
+                <Image src={event.imageUrl} alt={event.title} width={800} height={384} unoptimized className="h-48 w-full object-cover" />
                 <div className="p-5">
                   <span className="inline-flex rounded-full bg-violet-100 px-3 py-1 text-xs font-bold text-violet-700">
                     {event.eventType}
@@ -55,7 +47,7 @@ export default function UpcomingEventsPage() {
                     <p>{event.location}</p>
                     <p>{new Date(`${event.eventDate}T00:00:00`).toLocaleDateString()}</p>
                   </div>
-                  <Link href={`/events/${event.id}`} className="mt-5 block rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-4 py-3 text-center text-sm font-bold text-white">
+                  <Link href={`/events/${event.id}`} className="mt-5 block rounded-xl bg-linear-to-r from-violet-600 to-fuchsia-600 px-4 py-3 text-center text-sm font-bold text-white">
                     View Event
                   </Link>
                 </div>

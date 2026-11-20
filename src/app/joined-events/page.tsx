@@ -6,6 +6,7 @@ import Navbar from "../../component/Navbar";
 import Footer from "../../component/Footer";
 import { useAuth } from "../../component/AuthProvider";
 import Link from "next/link";
+import Image from "next/image";
 
 type EventItem = { id: string; title: string; eventType: string; imageUrl: string; location: string; eventDate: string; description: string };
 
@@ -20,16 +21,18 @@ export default function JoinedEventsPage() {
 
   useEffect(() => {
     if (!isLoaded || !loggedIn) return;
-    const joins = JSON.parse(localStorage.getItem("eventLabJoins") || "[]");
-    const eventIds = joins
-      .filter((join: { userEmail: string }) => join.userEmail === userEmail)
-      .map((join: { eventId: string }) => join.eventId);
-    const allEvents = JSON.parse(localStorage.getItem("eventLabEvents") || "[]") as EventItem[];
-    setEvents(
-      allEvents
-        .filter((event) => eventIds.includes(event.id))
-        .sort((a, b) => a.eventDate.localeCompare(b.eventDate)),
-    );
+    queueMicrotask(() => {
+      const joins = JSON.parse(localStorage.getItem("eventLabJoins") || "[]");
+      const eventIds = joins
+        .filter((join: { userEmail: string }) => join.userEmail === userEmail)
+        .map((join: { eventId: string }) => join.eventId);
+      const allEvents = JSON.parse(localStorage.getItem("eventLabEvents") || "[]") as EventItem[];
+      setEvents(
+        allEvents
+          .filter((event) => eventIds.includes(event.id))
+          .sort((a, b) => a.eventDate.localeCompare(b.eventDate)),
+      );
+    });
   }, [isLoaded, loggedIn, userEmail]);
 
   if (!isLoaded || !loggedIn) return null;
@@ -49,7 +52,7 @@ export default function JoinedEventsPage() {
           <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {events.map((event) => (
               <Link key={event.id} href={`/events/${event.id}`} className="overflow-hidden rounded-3xl bg-white shadow-lg dark:bg-zinc-900">
-                <img src={event.imageUrl} alt={event.title} className="h-48 w-full object-cover" />
+                <Image src={event.imageUrl} alt={event.title} width={800} height={384} unoptimized className="h-48 w-full object-cover" />
                 <div className="p-5">
                   <span className="rounded-full bg-violet-100 px-3 py-1 text-xs font-bold text-violet-700">{event.eventType}</span>
                   <h2 className="mt-4 text-xl font-black">{event.title}</h2>

@@ -29,10 +29,10 @@ export default function RegisterPage() {
       <section className="relative w-full max-w-md rounded-3xl border border-white/70 bg-white/85 p-8 shadow-[0_24px_70px_rgba(76,29,149,0.16)] backdrop-blur-xl sm:p-10">
         <div className="mb-8 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
-            <span className="flex size-11 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500 via-fuchsia-500 to-orange-400 text-sm font-extrabold text-white">
+            <span className="flex size-11 items-center justify-center rounded-2xl bg-linear-to-br from-violet-500 via-fuchsia-500 to-orange-400 text-sm font-extrabold text-white">
               EL
             </span>
-            <span className="bg-gradient-to-r from-violet-600 to-fuchsia-600 bg-clip-text text-lg font-bold text-transparent">
+            <span className="bg-linear-to-r from-violet-600 to-fuchsia-600 bg-clip-text text-lg font-bold text-transparent">
               Event Lab
             </span>
           </Link>
@@ -48,7 +48,7 @@ export default function RegisterPage() {
           {[1, 2].map((item) => (
             <div
               key={item}
-              className={`h-2 flex-1 rounded-full ${item <= step ? "bg-gradient-to-r from-violet-500 to-fuchsia-500" : "bg-zinc-200"}`}
+              className={`h-2 flex-1 rounded-full ${item <= step ? "bg-linear-to-r from-violet-500 to-fuchsia-500" : "bg-zinc-200"}`}
             />
           ))}
         </div>
@@ -87,7 +87,7 @@ export default function RegisterPage() {
                 className="w-full rounded-xl border border-violet-100 bg-white px-4 py-3 outline-none transition focus:border-violet-400 focus:ring-4 focus:ring-violet-100"
               />
             </label>
-            <button type="submit" className="w-full rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-5 py-3.5 font-bold text-white">
+            <button type="submit" className="w-full rounded-xl bg-linear-to-r from-violet-600 to-fuchsia-600 px-5 py-3.5 font-bold text-white">
               Continue
             </button>
           </form>
@@ -109,7 +109,7 @@ export default function RegisterPage() {
               <button type="button" onClick={() => setStep(1)} className="rounded-xl border border-violet-200 px-5 py-3.5 font-bold text-violet-700">
                 Back
               </button>
-              <button type="submit" className="flex-1 rounded-xl bg-gradient-to-r from-violet-600 via-fuchsia-600 to-orange-500 px-5 py-3.5 font-bold text-white">
+              <button type="submit" className="flex-1 rounded-xl bg-linear-to-r from-violet-600 via-fuchsia-600 to-orange-500 px-5 py-3.5 font-bold text-white">
                 Create Account
               </button>
             </div>

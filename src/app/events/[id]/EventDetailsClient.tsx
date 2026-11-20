@@ -5,6 +5,8 @@ import { useParams, useRouter } from "next/navigation";
 import Navbar from "../../../component/Navbar";
 import Footer from "../../../component/Footer";
 import { useAuth } from "../../../component/AuthProvider";
+import Image from "next/image";
+import { getEventsForDisplay } from "../../../component/seedEvents";
 
 type EventItem = {
   id: string;
@@ -25,8 +27,10 @@ export default function EventDetailsClient() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    const events = JSON.parse(localStorage.getItem("eventLabEvents") || "[]") as EventItem[];
-    setEvent(events.find((item) => item.id === id) || null);
+    queueMicrotask(() => {
+      const events = getEventsForDisplay();
+      setEvent(events.find((item) => item.id === id) || null);
+    });
   }, [id]);
 
   const joinEvent = () => {
@@ -57,8 +61,8 @@ export default function EventDetailsClient() {
             Loading event details...
           </div>
         ) : (
-          <article className="overflow-hidden rounded-[2rem] border border-white/80 bg-white shadow-[0_24px_70px_rgba(76,29,149,0.14)] dark:border-zinc-800 dark:bg-zinc-900">
-            <img src={event.imageUrl} alt={event.title} className="h-72 w-full object-cover sm:h-[420px]" />
+          <article className="overflow-hidden rounded-4xl border border-white/80 bg-white shadow-[0_24px_70px_rgba(76,29,149,0.14)] dark:border-zinc-800 dark:bg-zinc-900">
+            <Image src={event.imageUrl} alt={event.title} width={1200} height={840} unoptimized className="h-72 w-full object-cover sm:h-105" />
             <div className="p-6 sm:p-10">
               <span className="rounded-full bg-violet-100 px-4 py-1.5 text-sm font-bold text-violet-700">{event.eventType}</span>
               <h1 className="mt-5 text-4xl font-black sm:text-5xl">{event.title}</h1>
@@ -76,7 +80,7 @@ export default function EventDetailsClient() {
                 type="button"
                 onClick={joinEvent}
                 disabled={!isLoaded}
-                className="mt-8 rounded-xl bg-gradient-to-r from-violet-600 via-fuchsia-600 to-orange-500 px-7 py-3.5 font-bold text-white shadow-[0_12px_28px_rgba(168,85,247,0.28)]"
+                className="mt-8 rounded-xl bg-linear-to-r from-violet-600 via-fuchsia-600 to-orange-500 px-7 py-3.5 font-bold text-white shadow-[0_12px_28px_rgba(168,85,247,0.28)]"
               >
                 Join Event
               </button>

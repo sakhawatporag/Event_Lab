@@ -29,8 +29,6 @@ export default function CreateEventPage() {
     return null;
   }
 
-  const minimumDate = new Date(Date.now() + 86400000).toISOString().split("T")[0];
-
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const selectedDate = new Date(`${eventDate}T23:59:59`);
@@ -101,13 +99,13 @@ export default function CreateEventPage() {
             </label>
             <label>
               <span className="mb-2 block text-sm font-bold text-zinc-700">Date</span>
-              <input required type="date" min={minimumDate} value={eventDate} onChange={(event) => setEventDate(event.target.value)} className="w-full rounded-xl border border-violet-100 px-4 py-3 outline-none focus:border-violet-400 focus:ring-4 focus:ring-violet-100" />
+              <input required type="date" value={eventDate} onChange={(event) => setEventDate(event.target.value)} className="w-full rounded-xl border border-violet-100 px-4 py-3 outline-none focus:border-violet-400 focus:ring-4 focus:ring-violet-100" />
             </label>
             <label>
               <span className="mb-2 block text-sm font-bold text-zinc-700">Location</span>
               <input required value={location} onChange={(event) => setLocation(event.target.value)} placeholder="Dhaka, Bangladesh" className="w-full rounded-xl border border-violet-100 px-4 py-3 outline-none focus:border-violet-400 focus:ring-4 focus:ring-violet-100" />
             </label>
-            <button type="submit" className="sm:col-span-2 rounded-xl bg-gradient-to-r from-violet-600 via-fuchsia-600 to-orange-500 px-5 py-3.5 font-bold text-white">
+            <button type="submit" className="sm:col-span-2 rounded-xl bg-linear-to-r from-violet-600 via-fuchsia-600 to-orange-500 px-5 py-3.5 font-bold text-white">
               Publish Event
             </button>
           </form>

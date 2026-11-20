@@ -30,10 +30,10 @@ export default function LoginPage() {
       <section className="relative w-full max-w-md rounded-3xl border border-white/70 bg-white/85 p-8 shadow-[0_24px_70px_rgba(76,29,149,0.16)] backdrop-blur-xl sm:p-10">
         <div className="mb-8 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
-            <span className="flex size-11 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500 via-fuchsia-500 to-orange-400 text-sm font-extrabold text-white">
+            <span className="flex size-11 items-center justify-center rounded-2xl bg-linear-to-br from-violet-500 via-fuchsia-500 to-orange-400 text-sm font-extrabold text-white">
               EL
             </span>
-            <span className="bg-gradient-to-r from-violet-600 to-fuchsia-600 bg-clip-text text-lg font-bold text-transparent">
+            <span className="bg-linear-to-r from-violet-600 to-fuchsia-600 bg-clip-text text-lg font-bold text-transparent">
               Event Lab
             </span>
           </Link>
@@ -76,7 +76,7 @@ export default function LoginPage() {
 
           <button
             type="submit"
-            className="w-full rounded-xl bg-gradient-to-r from-violet-600 via-fuchsia-600 to-orange-500 px-5 py-3.5 font-bold text-white shadow-[0_10px_25px_rgba(168,85,247,0.28)] transition-transform hover:-translate-y-0.5"
+            className="w-full rounded-xl bg-linear-to-r from-violet-600 via-fuchsia-600 to-orange-500 px-5 py-3.5 font-bold text-white shadow-[0_10px_25px_rgba(168,85,247,0.28)] transition-transform hover:-translate-y-0.5"
           >
             Login
           </button>

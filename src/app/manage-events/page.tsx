@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Navbar from "../../component/Navbar";
 import Footer from "../../component/Footer";
 import { useAuth } from "../../component/AuthProvider";
+import Image from "next/image";
 
 type EventItem = { id: string; title: string; eventType: string; imageUrl: string; location: string; eventDate: string; description: string; creatorEmail: string };
 
@@ -20,8 +21,10 @@ export default function ManageEventsPage() {
 
   useEffect(() => {
     if (!isLoaded || !loggedIn) return;
-    const allEvents = JSON.parse(localStorage.getItem("eventLabEvents") || "[]") as EventItem[];
-    setEvents(allEvents.filter((event) => event.creatorEmail === userEmail));
+    queueMicrotask(() => {
+      const allEvents = JSON.parse(localStorage.getItem("eventLabEvents") || "[]") as EventItem[];
+      setEvents(allEvents.filter((event) => event.creatorEmail === userEmail));
+    });
   }, [isLoaded, loggedIn, userEmail]);
 
   const saveEvent = () => {
@@ -55,7 +58,7 @@ export default function ManageEventsPage() {
           <div className="mt-8 space-y-5">
             {events.map((event) => (
               <article key={event.id} className="flex flex-col gap-5 rounded-3xl bg-white p-5 shadow-lg sm:flex-row sm:items-center dark:bg-zinc-900">
-                <img src={event.imageUrl} alt={event.title} className="h-36 w-full rounded-2xl object-cover sm:w-52" />
+                <Image src={event.imageUrl} alt={event.title} width={416} height={288} unoptimized className="h-36 w-full rounded-2xl object-cover sm:w-52" />
                 <div className="flex-1">
                   <span className="text-xs font-bold text-violet-600">{event.eventType}</span>
                   <h2 className="mt-1 text-xl font-black">{event.title}</h2>
