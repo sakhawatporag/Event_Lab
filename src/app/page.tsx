@@ -177,7 +177,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="px-6 py-20">
+        <section className="px-6 py-21">
           <div className="mx-auto max-w-6xl rounded-4xl bg-linear-to-r from-violet-600 via-fuchsia-600 to-orange-500 px-6 py-12 text-center text-white shadow-[0_24px_60px_rgba(124,58,237,0.24)] sm:px-12">
             <h2 className="text-3xl font-black sm:text-4xl">Join the community newsletter</h2>
             <p className="mt-3 text-white/85">Get inspiring stories and new community events in your inbox.</p>
